@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-!**/log/
+!**/log/.log
 
 ### STS ###
 .apt_generated
@@ -36,3 +36,4 @@ build/
 log/
 /log/library.log
 log/library.log
+/log/
