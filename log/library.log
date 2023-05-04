@@ -352,3 +352,6 @@ List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='düzgün biçimli bir e-posta adresi değil!', propertyPath=email, rootBeanClass=class com.yigiter.librarymanagement.domain.Borrower, messageTemplate='{javax.validation.constraints.Email.message}'}
 ]
 2023-05-04 15:41:07,977 WARN  [http-nio-8080-exec-1] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [javax.validation.ConstraintViolationException: Validation failed for classes [com.yigiter.librarymanagement.domain.Borrower] during persist time for groups [javax.validation.groups.Default, ]<EOL>List of constraint violations:[<EOL>?ConstraintViolationImpl{interpolatedMessage='düzgün biçimli bir e-posta adresi değil!', propertyPath=email, rootBeanClass=class com.yigiter.librarymanagement.domain.Borrower, messageTemplate='{javax.validation.constraints.Email.message}'}<EOL>]]
+2023-05-04 15:55:06,851 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 15:55:06,854 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-05-04 15:55:06,857 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
