@@ -11,4 +11,5 @@ public class ErrorMessage {
     public static final String NOT_RETURNED_BOOK_MESSAGE = "Borrower has three books. This Borrower has not returned the books yet.";
     public static final String NOT_AVAILABLE_BOOK_MESSAGE = "The book is not available in our library ";
     public static final String THE_BOOK_ALREADY_CREATED_MESSAGE = "This book has already been created by Admin";
+    public static final String THE_BOOK_LOAN_STATUS_MESSAGE = "This book has loaned by Borrowers";
 }

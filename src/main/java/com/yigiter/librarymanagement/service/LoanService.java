@@ -85,6 +85,13 @@ public class LoanService {
         Loan loan=loanRepository.findLoanWithEmailAndTitle(email,title);
         return loan;
     }
+    public boolean getLoanByBook(String title){
+       List<Loan> loan= loanRepository.findByBookTitle(title);
+        if (loan.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
     //Mapping
     public LoanResponse loanToLoanResponse(Loan loan){
         LoanResponse loanResponse =new LoanResponse();

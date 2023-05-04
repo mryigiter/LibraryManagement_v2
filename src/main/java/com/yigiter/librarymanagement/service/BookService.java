@@ -3,10 +3,12 @@ package com.yigiter.librarymanagement.service;
 
 import com.yigiter.librarymanagement.domain.Book;
 import com.yigiter.librarymanagement.dto.BookDTO;
+import com.yigiter.librarymanagement.exception.BadRequestException;
 import com.yigiter.librarymanagement.exception.ErrorMessage;
 import com.yigiter.librarymanagement.exception.ResourceNotFoundException;
 import com.yigiter.librarymanagement.exception.ResponseMessage;
 import com.yigiter.librarymanagement.repository.BookRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,8 +16,10 @@ import java.util.List;
 
 @Service
 public class BookService {
+    private final LoanService loanService;
     private final BookRepository bookRepository;
-    public BookService( BookRepository bookRepository) {
+    public BookService(@Lazy LoanService loanService, BookRepository bookRepository) {
+        this.loanService = loanService;
         this.bookRepository = bookRepository;
     }
     public BookDTO createBook(BookDTO bookDTO) {
@@ -35,8 +39,14 @@ public class BookService {
     }
     public String removeBook(String title) {
         Book book= callBook(title);
+        boolean loanStatus= loanService.getLoanByBook(title);
+            if (!loanStatus){
+               throw new BadRequestException(String.format(ErrorMessage.THE_BOOK_LOAN_STATUS_MESSAGE));
+            }
         bookRepository.delete(book);
         return ResponseMessage.BOOK_DELETED_MESSAGE;
+
+
     }
     public List<BookDTO> getAllBooks() {
         List<Book> bookList =bookRepository.findAll();
