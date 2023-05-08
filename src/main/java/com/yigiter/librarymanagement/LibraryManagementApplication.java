@@ -2,13 +2,11 @@ package com.yigiter.librarymanagement;
 
 import com.yigiter.librarymanagement.domain.Role;
 import com.yigiter.librarymanagement.domain.enums.RoleType;
-import com.yigiter.librarymanagement.repository.BorrowerRepository;
 import com.yigiter.librarymanagement.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -25,6 +23,7 @@ public class LibraryManagementApplication {
 @Component
 @AllArgsConstructor
 class DemoCommandLineRunner implements CommandLineRunner {
+
     RoleRepository roleRepository;
 
     @Override
